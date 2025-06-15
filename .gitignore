@@ -1,8 +1,1 @@
-*.png
-*.svg
-*.jpeg
-*.jpg
-*.bmp
-*.gif
-*.sb3
 node_modules/

@@ -1,0 +1,2044 @@
+{
+    "targets": [
+        {
+            "isStage": true,
+            "name": "Stage",
+            "comments": {
+                "twconfig": {
+                    "blockId": null,
+                    "x": 0,
+                    "y": 0,
+                    "width": 350,
+                    "height": 170,
+                    "minimized": false,
+                    "text": "Configuration for https://turbowarp.org/\nYou can move, resize, and minimize this comment, but don't edit it by hand. This comment can be deleted to remove the stored settings.\n{\"framerate\":30,\"interpolation\":false,\"hq\":false,\"width\":480,\"height\":360,\"runtimeOptions\":{\"maxClones\":300,\"miscLimits\":true,\"fencing\":true}} // _twconfig_"
+                }
+            },
+            "broadcasts": {},
+            "variables": {},
+            "lists": {},
+            "blocks": {},
+            "costumes": [
+                {
+                    "name": "backdrop1",
+                    "assetId": "99f072f949068d21b679e53a3c09c90f",
+                    "bitmapResolution": 1,
+                    "dataFormat": "png",
+                    "md5ext": "99f072f949068d21b679e53a3c09c90f.png"
+                }
+            ],
+            "sounds": [],
+            "visible": true,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Ball",
+            "broadcasts": {},
+            "variables": {
+                "Position_Y": [
+                    "Position_Y",
+                    "-118.0"
+                ],
+                "Is_Squashed": [
+                    "Is_Squashed",
+                    "0.0"
+                ],
+                "Position_X": [
+                    "Position_X",
+                    "33.0"
+                ],
+                "Speed_Y": [
+                    "Speed_Y",
+                    "-1.0"
+                ],
+                "Speed_X": [
+                    "Speed_X",
+                    "-8.0"
+                ]
+            },
+            "lists": {},
+            "blocks": {
+                "0": {
+                    "opcode": "procedures_definition",
+                    "next": "2",
+                    "parent": null,
+                    "topLevel": true,
+                    "shadow": false,
+                    "inputs": {
+                        "custom_block": [
+                            1,
+                            "1"
+                        ]
+                    }
+                },
+                "1": {
+                    "opcode": "procedures_prototype",
+                    "next": null,
+                    "parent": "0",
+                    "topLevel": false,
+                    "shadow": true,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Move_Ball_Y",
+                        "argumentids": "[]",
+                        "argumentnames": "[]",
+                        "argumentdefaults": "[]"
+                    }
+                },
+                "2": {
+                    "opcode": "data_changevariableby",
+                    "next": "3",
+                    "parent": "0",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_Y",
+                            "Speed_Y"
+                        ]
+                    }
+                },
+                "3": {
+                    "opcode": "data_changevariableby",
+                    "next": "5",
+                    "parent": "2",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            [
+                                12,
+                                "Speed_Y",
+                                "Speed_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_Y",
+                            "Position_Y"
+                        ]
+                    }
+                },
+                "5": {
+                    "opcode": "motion_sety",
+                    "next": "7",
+                    "parent": "3",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "Y": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "7": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "5",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "9"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "10"
+                        ]
+                    }
+                },
+                "9": {
+                    "opcode": "sensing_coloristouchingcolor",
+                    "next": null,
+                    "parent": "7",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "COLOR": [
+                            1,
+                            [
+                                9,
+                                "#ff0000"
+                            ]
+                        ],
+                        "COLOR2": [
+                            1,
+                            [
+                                9,
+                                "#00cc44"
+                            ]
+                        ]
+                    }
+                },
+                "10": {
+                    "opcode": "data_changevariableby",
+                    "next": "14",
+                    "parent": "7",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "15",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_Y",
+                            "Position_Y"
+                        ]
+                    }
+                },
+                "15": {
+                    "opcode": "operator_subtract",
+                    "next": null,
+                    "parent": "10",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_Y",
+                                "Speed_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "14": {
+                    "opcode": "control_if_else",
+                    "next": "18",
+                    "parent": "10",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "19"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "20"
+                        ],
+                        "SUBSTACK2": [
+                            2,
+                            "21"
+                        ]
+                    }
+                },
+                "19": {
+                    "opcode": "operator_lt",
+                    "next": null,
+                    "parent": "14",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            "22",
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                1.0
+                            ]
+                        ]
+                    }
+                },
+                "22": {
+                    "opcode": "operator_mathop",
+                    "next": null,
+                    "parent": "19",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM": [
+                            3,
+                            [
+                                12,
+                                "Speed_Y",
+                                "Speed_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "OPERATOR": [
+                            "abs",
+                            null
+                        ]
+                    }
+                },
+                "20": {
+                    "opcode": "data_setvariableto",
+                    "next": "25",
+                    "parent": "14",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_Y",
+                            "Speed_Y"
+                        ]
+                    }
+                },
+                "25": {
+                    "opcode": "control_if_else",
+                    "next": null,
+                    "parent": "20",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "27"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "28"
+                        ],
+                        "SUBSTACK2": [
+                            2,
+                            "29"
+                        ]
+                    }
+                },
+                "27": {
+                    "opcode": "operator_equals",
+                    "next": null,
+                    "parent": "25",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Is_Squashed",
+                                "Is_Squashed"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                1.0
+                            ]
+                        ]
+                    }
+                },
+                "28": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "25",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "32",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_X",
+                            "Speed_X"
+                        ]
+                    }
+                },
+                "32": {
+                    "opcode": "operator_multiply",
+                    "next": null,
+                    "parent": "28",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_X",
+                                "Speed_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "29": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "25",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "35",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_X",
+                            "Speed_X"
+                        ]
+                    }
+                },
+                "35": {
+                    "opcode": "operator_multiply",
+                    "next": null,
+                    "parent": "29",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_X",
+                                "Speed_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "21": {
+                    "opcode": "control_if_else",
+                    "next": null,
+                    "parent": "14",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "38"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "39"
+                        ],
+                        "SUBSTACK2": [
+                            2,
+                            "40"
+                        ]
+                    }
+                },
+                "38": {
+                    "opcode": "operator_equals",
+                    "next": null,
+                    "parent": "21",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Is_Squashed",
+                                "Is_Squashed"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                1.0
+                            ]
+                        ]
+                    }
+                },
+                "39": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "21",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "43",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_Y",
+                            "Speed_Y"
+                        ]
+                    }
+                },
+                "43": {
+                    "opcode": "operator_multiply",
+                    "next": null,
+                    "parent": "39",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_Y",
+                                "Speed_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "40": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "21",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "46",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_Y",
+                            "Speed_Y"
+                        ]
+                    }
+                },
+                "46": {
+                    "opcode": "operator_multiply",
+                    "next": null,
+                    "parent": "40",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_Y",
+                                "Speed_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "18": {
+                    "opcode": "motion_sety",
+                    "next": "49",
+                    "parent": "14",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "Y": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "49": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "18",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "51"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "52"
+                        ]
+                    }
+                },
+                "51": {
+                    "opcode": "operator_not",
+                    "next": null,
+                    "parent": "49",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND": [
+                            2,
+                            "54"
+                        ]
+                    }
+                },
+                "54": {
+                    "opcode": "sensing_mousedown",
+                    "next": null,
+                    "parent": "51",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {}
+                },
+                "52": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "49",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "55"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "56"
+                        ]
+                    }
+                },
+                "55": {
+                    "opcode": "operator_equals",
+                    "next": null,
+                    "parent": "52",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Is_Squashed",
+                                "Is_Squashed"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                1.0
+                            ]
+                        ]
+                    }
+                },
+                "56": {
+                    "opcode": "data_setvariableto",
+                    "next": "60",
+                    "parent": "52",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Is_Squashed",
+                            "Is_Squashed"
+                        ]
+                    }
+                },
+                "60": {
+                    "opcode": "looks_switchcostumeto",
+                    "next": "62",
+                    "parent": "56",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "COSTUME": [
+                            1,
+                            "64"
+                        ]
+                    }
+                },
+                "64": {
+                    "opcode": "looks_costume",
+                    "next": null,
+                    "parent": "60",
+                    "topLevel": false,
+                    "shadow": true,
+                    "fields": {
+                        "COSTUME": [
+                            "Ball",
+                            null
+                        ]
+                    }
+                },
+                "62": {
+                    "opcode": "procedures_call",
+                    "next": "65",
+                    "parent": "60",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Fix_If_Ball_Stuck",
+                        "argumentids": "[]"
+                    }
+                },
+                "65": {
+                    "opcode": "procedures_call",
+                    "next": null,
+                    "parent": "62",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Fire_Ball",
+                        "argumentids": "[]"
+                    }
+                },
+                "66": {
+                    "opcode": "procedures_definition",
+                    "next": "68",
+                    "parent": null,
+                    "topLevel": true,
+                    "shadow": false,
+                    "inputs": {
+                        "custom_block": [
+                            1,
+                            "67"
+                        ]
+                    }
+                },
+                "67": {
+                    "opcode": "procedures_prototype",
+                    "next": null,
+                    "parent": "66",
+                    "topLevel": false,
+                    "shadow": true,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Fire_Ball",
+                        "argumentids": "[]",
+                        "argumentnames": "[]",
+                        "argumentdefaults": "[]"
+                    }
+                },
+                "68": {
+                    "opcode": "data_setvariableto",
+                    "next": "69",
+                    "parent": "66",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "70",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_X",
+                            "Speed_X"
+                        ]
+                    }
+                },
+                "70": {
+                    "opcode": "operator_divide",
+                    "next": null,
+                    "parent": "68",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            3,
+                            "71",
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "NUM2": [
+                            1,
+                            [
+                                4,
+                                10.0
+                            ]
+                        ]
+                    }
+                },
+                "71": {
+                    "opcode": "operator_subtract",
+                    "next": null,
+                    "parent": "70",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            3,
+                            "73",
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Position_X",
+                                "Position_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "73": {
+                    "opcode": "sensing_mousex",
+                    "next": null,
+                    "parent": "71",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {}
+                },
+                "69": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "68",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "75",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_Y",
+                            "Speed_Y"
+                        ]
+                    }
+                },
+                "75": {
+                    "opcode": "operator_divide",
+                    "next": null,
+                    "parent": "69",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            3,
+                            "76",
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "NUM2": [
+                            1,
+                            [
+                                4,
+                                10.0
+                            ]
+                        ]
+                    }
+                },
+                "76": {
+                    "opcode": "operator_subtract",
+                    "next": null,
+                    "parent": "75",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            3,
+                            "78",
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "78": {
+                    "opcode": "sensing_mousey",
+                    "next": null,
+                    "parent": "76",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {}
+                },
+                "80": {
+                    "opcode": "procedures_definition",
+                    "next": "82",
+                    "parent": null,
+                    "topLevel": true,
+                    "shadow": false,
+                    "inputs": {
+                        "custom_block": [
+                            1,
+                            "81"
+                        ]
+                    }
+                },
+                "81": {
+                    "opcode": "procedures_prototype",
+                    "next": null,
+                    "parent": "80",
+                    "topLevel": false,
+                    "shadow": true,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Fix_If_Ball_Stuck",
+                        "argumentids": "[]",
+                        "argumentnames": "[]",
+                        "argumentdefaults": "[]"
+                    }
+                },
+                "82": {
+                    "opcode": "control_repeat_until",
+                    "next": null,
+                    "parent": "80",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "83"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "84"
+                        ]
+                    }
+                },
+                "83": {
+                    "opcode": "operator_not",
+                    "next": null,
+                    "parent": "82",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND": [
+                            2,
+                            "85"
+                        ]
+                    }
+                },
+                "85": {
+                    "opcode": "sensing_coloristouchingcolor",
+                    "next": null,
+                    "parent": "83",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "COLOR": [
+                            1,
+                            [
+                                9,
+                                "#ff0000"
+                            ]
+                        ],
+                        "COLOR2": [
+                            1,
+                            [
+                                9,
+                                "#00cc44"
+                            ]
+                        ]
+                    }
+                },
+                "84": {
+                    "opcode": "data_changevariableby",
+                    "next": "88",
+                    "parent": "82",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                1.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_Y",
+                            "Position_Y"
+                        ]
+                    }
+                },
+                "88": {
+                    "opcode": "motion_sety",
+                    "next": null,
+                    "parent": "84",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "Y": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "91": {
+                    "opcode": "procedures_definition",
+                    "next": "93",
+                    "parent": null,
+                    "topLevel": true,
+                    "shadow": false,
+                    "inputs": {
+                        "custom_block": [
+                            1,
+                            "92"
+                        ]
+                    }
+                },
+                "92": {
+                    "opcode": "procedures_prototype",
+                    "next": null,
+                    "parent": "91",
+                    "topLevel": false,
+                    "shadow": true,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Check_Off_Screen",
+                        "argumentids": "[]",
+                        "argumentnames": "[]",
+                        "argumentdefaults": "[]"
+                    }
+                },
+                "93": {
+                    "opcode": "control_if",
+                    "next": "94",
+                    "parent": "91",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "95"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "96"
+                        ]
+                    }
+                },
+                "95": {
+                    "opcode": "operator_lt",
+                    "next": null,
+                    "parent": "93",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Position_X",
+                                "Position_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                -240.0
+                            ]
+                        ]
+                    }
+                },
+                "96": {
+                    "opcode": "data_changevariableby",
+                    "next": null,
+                    "parent": "93",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                480.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_X",
+                            "Position_X"
+                        ]
+                    }
+                },
+                "94": {
+                    "opcode": "control_if",
+                    "next": "101",
+                    "parent": "93",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "102"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "103"
+                        ]
+                    }
+                },
+                "102": {
+                    "opcode": "operator_gt",
+                    "next": null,
+                    "parent": "94",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Position_X",
+                                "Position_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                240.0
+                            ]
+                        ]
+                    }
+                },
+                "103": {
+                    "opcode": "data_changevariableby",
+                    "next": null,
+                    "parent": "94",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                -480.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_X",
+                            "Position_X"
+                        ]
+                    }
+                },
+                "101": {
+                    "opcode": "control_if",
+                    "next": "108",
+                    "parent": "94",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "109"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "110"
+                        ]
+                    }
+                },
+                "109": {
+                    "opcode": "operator_lt",
+                    "next": null,
+                    "parent": "101",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                -180.0
+                            ]
+                        ]
+                    }
+                },
+                "110": {
+                    "opcode": "data_changevariableby",
+                    "next": null,
+                    "parent": "101",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                360.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_Y",
+                            "Position_Y"
+                        ]
+                    }
+                },
+                "108": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "101",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "115"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "116"
+                        ]
+                    }
+                },
+                "115": {
+                    "opcode": "operator_gt",
+                    "next": null,
+                    "parent": "108",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "OPERAND1": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "OPERAND2": [
+                            1,
+                            [
+                                4,
+                                180.0
+                            ]
+                        ]
+                    }
+                },
+                "116": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "108",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                180.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_Y",
+                            "Position_Y"
+                        ]
+                    }
+                },
+                "121": {
+                    "opcode": "procedures_definition",
+                    "next": "123",
+                    "parent": null,
+                    "topLevel": true,
+                    "shadow": false,
+                    "inputs": {
+                        "custom_block": [
+                            1,
+                            "122"
+                        ]
+                    }
+                },
+                "122": {
+                    "opcode": "procedures_prototype",
+                    "next": null,
+                    "parent": "121",
+                    "topLevel": false,
+                    "shadow": true,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Move_Ball_X",
+                        "argumentids": "[]",
+                        "argumentnames": "[]",
+                        "argumentdefaults": "[]"
+                    }
+                },
+                "123": {
+                    "opcode": "data_changevariableby",
+                    "next": "124",
+                    "parent": "121",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            [
+                                12,
+                                "Speed_X",
+                                "Speed_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_X",
+                            "Position_X"
+                        ]
+                    }
+                },
+                "124": {
+                    "opcode": "motion_setx",
+                    "next": "126",
+                    "parent": "123",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "X": [
+                            3,
+                            [
+                                12,
+                                "Position_X",
+                                "Position_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "126": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "124",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "128"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "129"
+                        ]
+                    }
+                },
+                "128": {
+                    "opcode": "sensing_coloristouchingcolor",
+                    "next": null,
+                    "parent": "126",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "COLOR": [
+                            1,
+                            [
+                                9,
+                                "#ff0000"
+                            ]
+                        ],
+                        "COLOR2": [
+                            1,
+                            [
+                                9,
+                                "#00cc44"
+                            ]
+                        ]
+                    }
+                },
+                "129": {
+                    "opcode": "data_changevariableby",
+                    "next": "133",
+                    "parent": "126",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "134",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_X",
+                            "Position_X"
+                        ]
+                    }
+                },
+                "134": {
+                    "opcode": "operator_subtract",
+                    "next": null,
+                    "parent": "129",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_X",
+                                "Speed_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "133": {
+                    "opcode": "data_setvariableto",
+                    "next": "137",
+                    "parent": "129",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "138",
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_X",
+                            "Speed_X"
+                        ]
+                    }
+                },
+                "138": {
+                    "opcode": "operator_multiply",
+                    "next": null,
+                    "parent": "133",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "NUM1": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ],
+                        "NUM2": [
+                            3,
+                            [
+                                12,
+                                "Speed_X",
+                                "Speed_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "137": {
+                    "opcode": "motion_setx",
+                    "next": null,
+                    "parent": "133",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "X": [
+                            3,
+                            [
+                                12,
+                                "Position_X",
+                                "Position_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "142": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "143",
+                    "parent": null,
+                    "topLevel": true,
+                    "shadow": false
+                },
+                "143": {
+                    "opcode": "data_setvariableto",
+                    "next": "144",
+                    "parent": "142",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_X",
+                            "Position_X"
+                        ]
+                    }
+                },
+                "144": {
+                    "opcode": "data_setvariableto",
+                    "next": "146",
+                    "parent": "143",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Position_Y",
+                            "Position_Y"
+                        ]
+                    }
+                },
+                "146": {
+                    "opcode": "looks_setsizeto",
+                    "next": "148",
+                    "parent": "144",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "SIZE": [
+                            1,
+                            [
+                                4,
+                                100.0
+                            ]
+                        ]
+                    }
+                },
+                "148": {
+                    "opcode": "looks_switchcostumeto",
+                    "next": "150",
+                    "parent": "146",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "COSTUME": [
+                            1,
+                            "152"
+                        ]
+                    }
+                },
+                "152": {
+                    "opcode": "looks_costume",
+                    "next": null,
+                    "parent": "148",
+                    "topLevel": false,
+                    "shadow": true,
+                    "fields": {
+                        "COSTUME": [
+                            "Ball",
+                            null
+                        ]
+                    }
+                },
+                "150": {
+                    "opcode": "data_setvariableto",
+                    "next": "153",
+                    "parent": "148",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Is_Squashed",
+                            "Is_Squashed"
+                        ]
+                    }
+                },
+                "153": {
+                    "opcode": "motion_gotoxy",
+                    "next": "155",
+                    "parent": "150",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "X": [
+                            3,
+                            [
+                                12,
+                                "Position_X",
+                                "Position_X"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ],
+                        "Y": [
+                            3,
+                            [
+                                12,
+                                "Position_Y",
+                                "Position_Y"
+                            ],
+                            [
+                                10,
+                                ""
+                            ]
+                        ]
+                    }
+                },
+                "155": {
+                    "opcode": "data_setvariableto",
+                    "next": "158",
+                    "parent": "153",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_X",
+                            "Speed_X"
+                        ]
+                    }
+                },
+                "158": {
+                    "opcode": "data_setvariableto",
+                    "next": "160",
+                    "parent": "155",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Speed_Y",
+                            "Speed_Y"
+                        ]
+                    }
+                },
+                "160": {
+                    "opcode": "control_forever",
+                    "next": null,
+                    "parent": "158",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "SUBSTACK": [
+                            2,
+                            "162"
+                        ]
+                    }
+                },
+                "162": {
+                    "opcode": "procedures_call",
+                    "next": "163",
+                    "parent": "160",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Move_Ball_X",
+                        "argumentids": "[]"
+                    }
+                },
+                "163": {
+                    "opcode": "procedures_call",
+                    "next": "164",
+                    "parent": "162",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Move_Ball_Y",
+                        "argumentids": "[]"
+                    }
+                },
+                "164": {
+                    "opcode": "procedures_call",
+                    "next": "165",
+                    "parent": "163",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {},
+                    "mutation": {
+                        "tagName": "mutation",
+                        "children": [],
+                        "warp": "false",
+                        "proccode": "Check_Off_Screen",
+                        "argumentids": "[]"
+                    }
+                },
+                "165": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "164",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "166"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "167"
+                        ]
+                    }
+                },
+                "166": {
+                    "opcode": "sensing_mousedown",
+                    "next": null,
+                    "parent": "165",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {}
+                },
+                "167": {
+                    "opcode": "looks_switchcostumeto",
+                    "next": "169",
+                    "parent": "165",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "COSTUME": [
+                            1,
+                            "171"
+                        ]
+                    }
+                },
+                "171": {
+                    "opcode": "looks_costume",
+                    "next": null,
+                    "parent": "167",
+                    "topLevel": false,
+                    "shadow": true,
+                    "fields": {
+                        "COSTUME": [
+                            "Squashed",
+                            null
+                        ]
+                    }
+                },
+                "169": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "167",
+                    "topLevel": false,
+                    "shadow": false,
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                4,
+                                1.0
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Is_Squashed",
+                            "Is_Squashed"
+                        ]
+                    }
+                }
+            },
+            "costumes": [
+                {
+                    "name": "Ball",
+                    "assetId": "e4052472c37e2826ab90f2d2dec2d413",
+                    "dataFormat": "svg",
+                    "md5ext": "e4052472c37e2826ab90f2d2dec2d413.svg"
+                },
+                {
+                    "name": "Squashed",
+                    "assetId": "56e95e83a8c99986c4287669739ed69b",
+                    "dataFormat": "svg",
+                    "md5ext": "56e95e83a8c99986c4287669739ed69b.svg"
+                }
+            ],
+            "sounds": [],
+            "visible": true,
+            "rotationStyle": "all around"
+        }
+    ],
+    "monitors": [],
+    "extensions": [],
+    "meta": {
+        "semver": "3.0.0",
+        "vm": "0.2.0",
+        "agent": "goboscript v3.2.1"
+    }
+}
