@@ -1,7 +1,7 @@
-var Position_X = 33;
-var Position_Y = -118;
-var Speed_X = -8;
-var Speed_Y = -1;
+var Position_X = 33.02382796799978;
+var Position_Y = -118.79857675775992;
+var Speed_X = -8.455716864000006;
+var Speed_Y = -1.634239933439999;
 var Is_Squashed = 0;
 
 costumes "Ball/Ball.svg", "Ball/Squashed.svg";
@@ -38,13 +38,13 @@ nowarp proc Move_Ball_X {
     set_x Position_X;
     if color_is_touching_color("#ff0000", "#00cc44") {
         Position_X += -Speed_X;
-        Speed_X = 0 * Speed_X;
+        Speed_X = -0.8 * Speed_X;
         set_x Position_X;
     }
 }
 
 nowarp proc Move_Ball_Y {
-    Speed_Y += 0;
+    Speed_Y += -0.5;
     Position_Y += Speed_Y;
     set_y Position_Y;
     if color_is_touching_color("#ff0000", "#00cc44") {
@@ -52,17 +52,17 @@ nowarp proc Move_Ball_Y {
         if abs(Speed_Y) < 1 {
             Speed_Y = 0;
             if Is_Squashed == 1 {
-                Speed_X = 0 * Speed_X;
+                Speed_X = 0.5 * Speed_X;
             }
             else {
-                Speed_X = 0 * Speed_X;
+                Speed_X = 0.98 * Speed_X;
             }
         }
         elif Is_Squashed == 1 {
-            Speed_Y = 0 * Speed_Y;
+            Speed_Y = -0.2 * Speed_Y;
         }
         else {
-            Speed_Y = 0 * Speed_Y;
+            Speed_Y = -0.6 * Speed_Y;
         }
         set_y Position_Y;
         if not mouse_down() {
