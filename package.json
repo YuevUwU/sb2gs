@@ -1,0 +1,22 @@
+{
+  "name": "bouncing-ball-example-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-sort-json": "^4.1.1"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-sort-json"
+    ]
+  }
+}

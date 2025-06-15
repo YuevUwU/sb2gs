@@ -5,3 +5,4 @@
 *.bmp
 *.gif
 *.sb3
+node_modules/
